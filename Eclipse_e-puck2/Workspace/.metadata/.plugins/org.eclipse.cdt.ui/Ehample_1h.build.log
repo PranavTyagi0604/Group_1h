@@ -1,0 +1,6 @@
+13:47:21 **** Incremental Build of configuration Default for project Ehample_1h ****
+make all 
+make: Nothing to be done for 'all'.
+
+13:47:23 Build Finished. 0 errors, 0 warnings. (took 1s.175ms)
+
