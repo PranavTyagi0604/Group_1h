@@ -24,6 +24,8 @@ Task 1 - Implementing a test and control strategy for the robot:
 #include "memory_protection.h"
 #include <main.h>
 #include <time.h>
+#include "chprintf.h"
+#include "usbcfg.h"
 
 // Motors 
 #include "motors.h"
@@ -49,10 +51,14 @@ void Turn_right();        // Function to turn left
 void Turn_left();         // Function to turn right 
 void reverse();           // Function to reverse 
 void forward();           // Function to move forward
+void Around();            // Function to turn around
 void prox_vals();         // Function to get the proximity sensors data
-void Turn(int sensor);    // Function to determine the boundry or obstacle 
+//void Turn(int sensor);    // Function to determine the boundry or obstacle
+void turn_test(int Prox_thresh);
+void stop();              // Function to stop the robot
 
-
+// Array for storing proximity values
+int Prox_vals[8];
 
 int main(void)
 {
@@ -61,6 +67,7 @@ int main(void)
     chSysInit();
     mpu_init();
 
+    usb_start();
     // Iniatialising UART1 channel 
     serial_start(); 
 
@@ -80,20 +87,25 @@ int main(void)
     motors_init();
 
     // Setting sensor threshold values 
-    int Prox_thresh = 1000; 
+    int Prox_thresh = 200;
+
+
 
     // Time for spinning while loop 
-    time_t endwait;
-    int seconds = 5;
+   // time_t endwait;
+ //   int seconds = 5;
 
-    endwait = time(NULL) + seconds;
-    // Spinning e-puck for a specefied amount of time 
-    while (time(NULL) < endwait)
-    {
-    	left_motor_set_speed(-1000);
-    	right_motor_set_speed(1000);
-    }
-
+//    endwait = time(NULL) + seconds;
+//    // Spinning e-puck for a specefied amount of time
+//    while (time(NULL) < endwait)
+//    {
+//    	left_motor_set_speed(-1000);
+//    	right_motor_set_speed(1000);
+//    }
+    left_motor_set_speed(-1000);
+   	right_motor_set_speed(1000);
+    chThdSleepMilliseconds(5000);
+    stop();
 
     // char str[100];
     // int str_length;
@@ -102,17 +114,22 @@ int main(void)
     // int x;
     // int y;
 
-    /* Infinite loop. */
+    // Infinite while loop
     while (1) {
     	
     	//waits half a second
         chThdSleepMilliseconds(500);
 
         // Proximity sensor values 
+
         prox_vals();
+        //forward();
+        //chThdSleepMilliseconds(1000);
+        //Turn_right();
+        turn_test(Prox_thresh);
 
         //str_length = sprintf(str, "Hello World\n");
-        e_send_uart1_char(str, x);
+        //e_send_uart1_char(str, x);
     }
 }
 
@@ -132,68 +149,148 @@ void __stack_chk_fail(void)
         Function definations 
 *******************************************/
 
+void stop()
+{
+	left_motor_set_speed(0);
+	right_motor_set_speed(0);
+}
 
 void Turn_right()
 {
-
+	left_motor_set_speed(500);
+	right_motor_set_speed(-500);
 }     
 
 void Turn_left()
 {
-
+	left_motor_set_speed(-500);
+	right_motor_set_speed(500);
 }   
 
 void reverse()
 {
-
+	left_motor_set_speed(-600);
+	right_motor_set_speed(-600);
 }   
 
 void forward()
 {
+	left_motor_set_speed(400);
+	right_motor_set_speed(400);
+}
 
-}     
+void Around()
+{
+	stop();
+	Turn_left();
+	stop();
+	Turn_left();
+	forward();
+}
 
 void prox_vals()
 {
 	// For loop to get the proximity of all sensors 
 	for (int i = 0; i <= 7; i++)
 	{
-		int prox = get_prox(i);
-		int cal_prox = get_calibrated_prox(i);
+		//int prox = get_prox(i);
+		//int cal_prox = get_calibrated_prox(i);
+
+		// Passing the prox vals to array
+		Prox_vals[i] = get_prox(i);
+//		if (SDU1.config->usbp->state == USB_ACTIVE) {
+//		chprintf((BaseSequentialStream *)&SDU1, "%4d,", Prox_vals[i]);
+
+
 	}
 } 
 
 
-void Turn(int sensor)
-{
-	switch(sensor)
-	{
-		case 0:
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-		case 6:
-		case 7:
-	}
-}
+//void Turn(int sensor)
+//{
+//	switch(sensor)
+//	{
+//		case 0:
+//		case 1:
+//		case 2:
+//		case 3:
+//		case 4:
+//		case 5:
+//		case 6:
+//		case 7:
+//	}
+//}
 
 
  
 // Test function 
-void turn_test(int sensor, int cal_prox)
+//void turn_test(int Prox_thresh)									// need to add thresh condition
+//{
+//	if((Prox_vals[0] <= Prox_thresh) && (Prox_vals[1] <= Prox_thresh) && (Prox_vals[2] <= Prox_thresh))
+//	{
+//		Turn_left();
+//		forward();
+//
+//	}else if ((Prox_vals[5] <= Prox_thresh) || (Prox_vals[6] <= Prox_thresh) || (Prox_vals[7] <= Prox_thresh))
+//	{
+//		Turn_right();
+//		forward();
+//
+//	}else if ((Prox_vals[0] <= Prox_thresh) && (Prox_vals[7] <= Prox_thresh))
+//	{
+//
+//		Around();
+//		forward();
+//	}else{ forward(); }
+//}
+
+
+
+void turn_test(int Prox_thresh)									// need to add thresh condition
 {
-	if ()
+	if((Prox_vals[0] >= Prox_thresh) && (Prox_vals[1] >= 300))
 	{
-		
+		stop();
+		chThdSleepMilliseconds(500);
+		//reverse();
+		//stop();
+		Turn_left();
+		chThdSleepMilliseconds(500);
+		forward();
+
+	}else if ((Prox_vals[6] >= 300) && (Prox_vals[7] >= Prox_thresh))
+	{
+		stop();
+		//chThdSleepMilliseconds(500);
+		//reverse();
+		//stop();
+		Turn_right();
+		chThdSleepMilliseconds(500);
+		forward();
+
+	}else if ((Prox_vals[0] >= Prox_thresh) && (Prox_vals[7] >= Prox_thresh))
+	{
+		stop();
+		chThdSleepMilliseconds(500);
+		reverse();
+		chThdSleepMilliseconds(500);
+		Turn_right();
+	}else if(Prox_vals[2] >= Prox_thresh)
+	{
+		//stop();
+		chThdSleepMilliseconds(500);
+		Turn_left();
+		chThdSleepMilliseconds(200);
+		forward();
+	}else if(Prox_vals[5] >= Prox_thresh)
+	{
+		//stop();
+		chThdSleepMilliseconds(500);
+		Turn_right();
+		chThdSleepMilliseconds(200);
+		forward();
 	}
+	else{ forward(); }
 }
-
-
-
-
-
-
 
 
