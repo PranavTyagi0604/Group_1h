@@ -31,10 +31,6 @@ build/obj/main.o: main.c \
  /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/stdlib.h \
  /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/machine/stdlib.h \
  /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/alloca.h \
- /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/string.h \
- /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/xlocale.h \
- /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/strings.h \
- /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/sys/string.h \
  /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/math.h \
  ../e-puck2_main-processor/ChibiOS//os/rt/include/ch.h \
  ../e-puck2_main-processor/ChibiOS//os/rt/ports/ARMCMx/compilers/GCC/chtypes.h \
@@ -136,7 +132,29 @@ build/obj/main.o: main.c \
  ../e-puck2_main-processor/src/msgbus/messagebus.h \
  /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/unistd.h \
  /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/sys/unistd.h \
- ../e-puck2_main-processor/src/parameter/parameter.h
+ ../e-puck2_main-processor/src/parameter/parameter.h \
+ /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/time.h \
+ /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/machine/time.h \
+ /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/xlocale.h \
+ ../e-puck2_main-processor/ChibiOS//os/hal/lib/streams/chprintf.h \
+ ../e-puck2_main-processor/src/usbcfg.h \
+ ../e-puck2_main-processor/src/motors.h \
+ ../e-puck2_main-processor/src/sensors/VL53L0X/VL53L0X.h \
+ ../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_api.h \
+ ../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_api_strings.h \
+ ../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_def.h \
+ ../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_device.h \
+ ../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_types.h \
+ ../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_platform.h \
+ ../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/../../core/inc/vl53l0x_def.h \
+ ../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_platform_log.h \
+ /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/string.h \
+ /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/strings.h \
+ /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/sys/string.h \
+ ../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_i2c_platform.h \
+ ../e-puck2_main-processor/src/sensors/proximity.h \
+ ../e-puck2_main-processor/src/epuck1x/uart/e_uart_char.h \
+ ../e-puck2_main-processor/src/serial_comm.h
 
 /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/stdio.h:
 
@@ -201,14 +219,6 @@ build/obj/main.o: main.c \
 /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/machine/stdlib.h:
 
 /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/alloca.h:
-
-/home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/string.h:
-
-/home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/xlocale.h:
-
-/home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/strings.h:
-
-/home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/sys/string.h:
 
 /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/math.h:
 
@@ -415,3 +425,47 @@ main.h:
 /home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/sys/unistd.h:
 
 ../e-puck2_main-processor/src/parameter/parameter.h:
+
+/home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/time.h:
+
+/home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/machine/time.h:
+
+/home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/xlocale.h:
+
+../e-puck2_main-processor/ChibiOS//os/hal/lib/streams/chprintf.h:
+
+../e-puck2_main-processor/src/usbcfg.h:
+
+../e-puck2_main-processor/src/motors.h:
+
+../e-puck2_main-processor/src/sensors/VL53L0X/VL53L0X.h:
+
+../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_api.h:
+
+../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_api_strings.h:
+
+../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_def.h:
+
+../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_device.h:
+
+../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/vl53l0x_types.h:
+
+../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_platform.h:
+
+../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/../../core/inc/vl53l0x_def.h:
+
+../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_platform_log.h:
+
+/home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/string.h:
+
+/home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/strings.h:
+
+/home/uos/Documents/Group_1h/Eclipse_e-puck2/Tools/gcc-arm-none-eabi-7-2017-q4-major/arm-none-eabi/include/sys/string.h:
+
+../e-puck2_main-processor/src/sensors/VL53L0X/Api/core/inc/../../platform/inc/vl53l0x_i2c_platform.h:
+
+../e-puck2_main-processor/src/sensors/proximity.h:
+
+../e-puck2_main-processor/src/epuck1x/uart/e_uart_char.h:
+
+../e-puck2_main-processor/src/serial_comm.h:
